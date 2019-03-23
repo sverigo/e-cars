@@ -74,7 +74,7 @@ export class CarRateService {
                 return acc;
             }, {n: 0, s: 0});
             // console.log("rating", n, s, arr.length, arr);
-            this.firestore.collection('cars2').doc(String(carId)).update({
+            this.firestore.collection('cars').doc(String(carId)).update({
                 rating: Math.round(10*s/n)/10 || 0
             });
         });
