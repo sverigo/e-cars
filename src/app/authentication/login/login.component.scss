@@ -1,0 +1,25 @@
+a:hover {
+    cursor: pointer;
+}
+
+button {
+    margin: 20px 0 20px 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+.gap {
+    padding-top: 10px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+  
+.inputs > * {
+    width: 90%;
+    height: 80px;
+  }

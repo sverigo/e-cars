@@ -1,0 +1,29 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html {
+    position: relative;
+    box-sizing: border-box;
+    min-height: 100vh;
+    min-width: 800px;
+    padding: 0;
+    margin: 0;
+    padding-bottom: calc(38px + 20px); /* height of footer + height of space */
+    
+    body {
+        font: 1em sans-serif;
+        .ui-slider {
+            .ui-slider-range {
+                background-color: #00ab6f;
+            }
+            .ui-slider-handle {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+app-car-details .ui-panel-images {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}

@@ -1,0 +1,28 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="title" sticky>
+        <th mat-header-cell *matHeaderCellDef>Название</th>
+        <td mat-cell *matCellDef="let row">{{row.title}}</td>
+    </ng-container>
+    <ng-container *ngFor="let index of indices" matColumnDef="{{index}}">
+        <th class="equipment" mat-header-cell *matHeaderCellDef>{{carNames[index]}}</th>
+        <td mat-cell *matCellDef="let row">{{equipments[index].properties[row.name]}}</td>
+    </ng-container>
+    <ng-container matColumnDef="price" sticky>
+        <th mat-header-cell *matHeaderCellDef>Цена</th>
+    </ng-container>
+    <ng-container *ngFor="let index of indices" matColumnDef="{{index}}-price">
+        <th mat-header-cell *matHeaderCellDef>{{equipments[index].price}}</th>
+    </ng-container>
+    <ng-container matColumnDef="image" sticky>
+        <th mat-header-cell *matHeaderCellDef></th>
+    </ng-container>
+    <ng-container *ngFor="let index of indices" matColumnDef="{{index}}-image">
+        <th mat-header-cell *matHeaderCellDef><img src="{{carsInfo[index].image}}"></th>
+    </ng-container>
+    <ng-container *ngIf="carsInfo">
+        <tr mat-header-row *matHeaderRowDef="displayedImageColumns"></tr>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedPriceColumns"></tr>
+    <tr mat-row *matRowDef="let _; columns: displayedColumns;"></tr>
+</table>

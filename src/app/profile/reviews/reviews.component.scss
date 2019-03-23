@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 300px;
+}
+
+.mat-column-timeStamp {
+    flex: 0 0 20%;
+}
+
+.mat-column-tittle {
+    flex: 0 0 20%;
+}
+
+.mat-column-text {
+    flex: 0 0 50%;
+}
+
+h1 {
+    text-align: center;
+}
+

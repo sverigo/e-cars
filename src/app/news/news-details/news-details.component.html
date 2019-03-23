@@ -1,0 +1,26 @@
+<div class="scroll" *ngIf="newsDetails">
+    <mat-card>
+        <div  fxLayout="column" fxLayoutGap="10px">
+            <div>
+                <mat-card-header>
+                    <mat-card-title>{{newsDetails.title}}</mat-card-title>
+                    <mat-card-subtitle>
+                        {{newsDetails.details.date.toDate() | date: "fullDate"}}
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]="newsDetails.photo || '/assets/no-photo.jpg'"
+                    alt="Photo of a car">
+                <mat-card-content>
+                    {{newsDetails.details.text}}
+                </mat-card-content>
+            </div>
+            <div>
+                <h3>Комментарии:</h3>
+                <app-add-comment [user]="user" [tittle]="newsDetails.title" [id]="idNews" *ngIf="isLoginned"></app-add-comment>
+            </div>
+            <div>
+                <app-news-comments [idNews]="idNews"></app-news-comments>
+            </div>
+        </div>    
+    </mat-card>
+</div>

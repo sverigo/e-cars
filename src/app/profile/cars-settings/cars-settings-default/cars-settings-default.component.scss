@@ -1,0 +1,29 @@
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 300px;
+}
+
+.form-container {
+    position: relative;
+}
+
+.table-fab {
+    position: absolute;
+    right: 15px;
+    top: 70px;
+  }
+
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+}
+
+mat-spinner {
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}

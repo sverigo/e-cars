@@ -1,0 +1,7 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{truncate(data.title, 30)}}</mat-card-title>
+    </mat-card-header>
+    <img [src]="data.photo || '/assets/no-photo.jpg'" alt="Photo of a car">
+    <div>{{truncate(data.description, 140)}}</div>
+</mat-card>

@@ -1,0 +1,36 @@
+<mat-card *ngIf="car">
+    <div class="info" fxLayout="row" fxLayoutAlign="space-between">
+        <p-galleria [images]="carImages" panelWidth="390" panelHeight="290" [showCaption]="false"></p-galleria>
+        <div>
+            <mat-card-title>{{ carName }}
+                <span class="rating" matTooltip="{{car.rating}}">
+                    <span [style.width.%]="car.rating * 20"></span>
+                </span>
+            </mat-card-title>
+            <mat-card-content class="props">
+                <div>
+                    <span>Цена:</span> {{ carPriceRange }}
+                </div>
+                <div>
+                    <span>Батарея: </span>{{ carBatteryRange }}
+                </div>
+                <div>
+                    <span>Мощность: </span>{{ carPowerRange }}
+                </div>
+                <div>
+                    <span>Запас хода: </span>{{ carRangeRange }}
+                </div>
+            </mat-card-content>
+            <app-car-rate [carId]="car.id"></app-car-rate>
+        </div>
+    </div>
+    <div class="equipments-wrapper">
+        <mat-card>
+            <mat-select [(ngModel)]="selectedEquipment" placeholder="Выберите комплектацию...">
+                <mat-option *ngFor="let entry of equipments; let i=index;" [value]="i">{{entry.name}}</mat-option>
+            </mat-select>
+        </mat-card>
+        <app-car-equipment-properties *ngIf="selectedEquipment !== undefined" [equipments]="[equipments[selectedEquipment]]"></app-car-equipment-properties>
+    </div>
+</mat-card>
+<mat-spinner *ngIf="!car"></mat-spinner>

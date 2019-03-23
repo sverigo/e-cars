@@ -1,0 +1,18 @@
+<div class="carsPanel scroll">
+    <div *ngFor="let car of cars">
+        <fieldset>
+            <div class="carName">
+                <label>{{ car.make }} {{ car.model }}</label>
+            </div>
+            <div class="delete" (click)="removeCar(car)"><i class="material-icons">delete</i></div>
+            <mat-checkbox color="primary" *ngFor="let equip of car.equipments;"
+                [id]="car.id + equip.name"
+                [name]="equip.name"
+                (change)="onCheckboxChange($event, equip, car)"
+            >{{ equip.name }}</mat-checkbox>
+        </fieldset>
+    </div>
+</div>
+<div class="tablePanel">
+    <app-car-equipment-properties *ngIf="selectedEquipments.length > 0" [equipments]="selectedEquipments" [carsInfo]="selectedCars"></app-car-equipment-properties>
+</div>

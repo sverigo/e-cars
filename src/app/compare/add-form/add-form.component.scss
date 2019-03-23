@@ -1,0 +1,15 @@
+form {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+form mat-select {
+    width: 200px;
+    margin-right: 20px; 
+}
+
+form button {
+    line-height: 0;
+    padding: 0;
+}

@@ -1,0 +1,8 @@
+<div class="container" fxLayout="row wrap" fxLayoutAlign="space-around">
+    <app-car *ngFor="let car of carList;" class="card" [routerLink]="['/car', car.id]" [car]="car"></app-car>
+    <div *ngIf="!carList.length" class="carNotFound">
+        <h3>По таким параметрам ничего нет</h3>
+        <img src="/assets/car-not-found.png" alt="car-not-found">
+    </div>
+</div>
+<ng-content></ng-content>

@@ -1,0 +1,57 @@
+:host {
+    display: block;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.info {
+    & > * {
+        flex: 0 0 calc(50% - 10px)
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+.rating {
+    background-image: url("~/assets/empty_star.png");
+    background-repeat: repeat-x;
+    background-size: 20px 20px;
+    display: block;
+    float: right;
+    height: 20px;
+    width: 100px;
+}
+  
+.rating span {
+    background-image: url("~/assets/filled_star.png");
+    background-repeat: repeat-x;
+    background-size: 20px 20px;
+    display: block;
+    height: 100%;
+    width: 0;
+}
+
+.props span {
+    font-weight: bold;
+}
+
+.equipments-wrapper {
+    margin: 1px auto;
+    text-align: center;
+
+    mat-card {
+        min-width: 200px;
+    }
+}
+
+app-car-equipment-properties {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+}
+
+mat-spinner {
+    margin: 200px auto 0;
+}

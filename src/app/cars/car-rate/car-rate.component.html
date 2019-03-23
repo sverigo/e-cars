@@ -1,0 +1,15 @@
+<mat-card-content>
+    <span>Оценить:</span>
+    <div *ngIf="!isLoggedIn">Чтобы поставить оценку необходимо зарегистрироваться.</div>
+    <ng-container *ngIf="isLoggedIn">
+        <mat-select [(ngModel)]="myMark">
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+            <mat-option value="3">3</mat-option>
+            <mat-option value="4">4</mat-option>
+            <mat-option value="5">5</mat-option>
+        </mat-select>
+        <button mat-button (click)="saveMark()">Сохранить</button>
+        <button mat-button (click)="deleteMark()">Удалить</button>
+    </ng-container>
+</mat-card-content>

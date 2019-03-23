@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 300px;
+}
+
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+}
+
+mat-spinner {
+    margin: 0 auto;
+}
+
+.form-container {
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+}

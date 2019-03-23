@@ -1,0 +1,12 @@
+<div class="commentsComponent">
+    <div class="formClass">
+        <mat-form-field>
+            <textarea class="comment" matInput placeholder="Комментарий" #textArea
+                (keyup)="OnKeyUp(textArea.value.length)"></textarea>
+        </mat-form-field>
+    </div>
+    <div class="buttonBlock">
+        <button mat-raised-button [disabled]="activateButton" (click)="addComment(textArea)">Добавить
+            комментарий</button>
+    </div>
+</div>

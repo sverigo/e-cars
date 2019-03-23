@@ -1,0 +1,60 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="formGroup">
+        <p>Фото профиля:</p>
+        <div class="photoTepmlate">
+            <img [src]="imageSrc || user.avatarLink || '/assets/photo-camera.png'" alt="ava">
+            <input type="file" formControlName="imgPath" accept="image/*" (change)="readURL($event);">
+        </div>
+    </div>
+    <div class="formGroup">
+        <p>Изменить почту:</p>
+        <mat-form-field>
+            <input matInput readonly placeholder="Текущая почта почта" [value]="user.email || ''">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Новая почта" formControlName="newEmail">
+            <mat-error>
+                Введите корректную почту!
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="formGroup">
+        <p>Изменить пароль:</p>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Новый пароль" formControlName="newPass">
+            <mat-error *ngIf="form.get('currentPass').errors != null && form.get('currentPass').errors.hasOwnProperty('minlength')">
+                Минимум {{ minPasswordLength }} символов!
+            </mat-error>
+            <mat-error *ngIf="form.get('newPass').errors != null && form.get('newPass').errors.hasOwnProperty('notEqual')">
+                Пароли не совпадают!
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Повторите новый пароль" formControlName="repeatPass">
+            <mat-error *ngIf="form.get('repeatPass').errors != null && form.get('repeatPass').errors.hasOwnProperty('notEqual')">
+                Пароли не совпадают!
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="formGroup">
+        <p>Для сохранения, введите:</p>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Текущий пароль" formControlName="currentPass">
+            <mat-spinner diameter="20"></mat-spinner>
+            <mat-error *ngIf="form.get('currentPass').errors != null && form.get('currentPass').errors.hasOwnProperty('required')">
+                Обязательное поле!
+            </mat-error>
+            <mat-error *ngIf="form.get('currentPass').errors != null && form.get('currentPass').errors.hasOwnProperty('minlength')">
+                Минимум {{ minPasswordLength }} символов!
+            </mat-error>
+            <mat-error *ngIf="form.get('currentPass').errors != null && form.get('currentPass').errors.hasOwnProperty('invalidPass')">
+                Не верный пароль!
+            </mat-error>
+        </mat-form-field>
+        <div class="check-filed">
+            <mat-checkbox formControlName="notifications">Получать рассылку на почту!</mat-checkbox>
+        </div>
+        <button mat-raised-button color="accent" type="submit" [disabled]="!form.valid">Сохранить</button>
+    </div>
+
+</form>

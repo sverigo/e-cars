@@ -1,0 +1,25 @@
+.scroll {
+    overflow-y: scroll;
+    height: 78vh;
+
+    &::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background-color: white;
+    }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        background-color: white;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: gray;
+    }
+
+    & > mat-card {
+        margin-right: 20px;
+    }
+
+}

@@ -1,0 +1,6 @@
+<div fxLayout fxLayoutGap="1vw">
+    <div fxFlex="25">
+        <app-news-list (changed)="changed($event)"></app-news-list>
+    </div>
+    <app-news-details fxFlex [currentNews]="selectedNewsItem"  *ngIf="selectedNewsItem" ></app-news-details>
+</div>

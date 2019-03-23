@@ -1,0 +1,15 @@
+mat-card {
+    cursor: pointer;
+}
+
+img {
+    width: 40%;
+    height: auto;
+    border-radius: 5% 5%;
+    float: left;
+    margin-right: 2%;
+}
+
+img + div {
+  text-align: justify;
+}

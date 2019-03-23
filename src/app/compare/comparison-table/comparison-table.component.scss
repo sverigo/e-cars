@@ -1,0 +1,63 @@
+:host {
+    display: flex;
+    margin-top: 20px;
+}
+
+.carsPanel {
+    width: 220px;
+    max-height: 500px;
+}
+
+.tablePanel {
+    width: calc(100% - 220px);
+}
+
+.carsPanel > div {
+    width: 100%;
+}
+
+fieldset {
+    position: relative;
+}
+
+.carName {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+}
+
+mat-select {
+    margin: 10px 0;
+}
+
+mat-checkbox {
+    display: block;
+}
+
+.delete {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.scroll {
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background-color: white;
+    }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        background-color: white;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: gray;
+    }
+}

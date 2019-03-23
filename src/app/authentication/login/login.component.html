@@ -1,0 +1,69 @@
+<div *ngIf="!signUpnView">
+    <form [formGroup]="formLogin" (ngSubmit)="login()">
+        <h2 mat-dialog-title>Вход</h2>
+        <div mat-dialog-content class="inputs">
+            <mat-form-field >
+                <input matInput placeholder="Email" formControlName="email">
+                <mat-error *ngIf="formLogin.get('email').invalid && formLogin.get('email').touched">
+                        <span *ngIf="formLogin.get('email').errors['pattern']">Не валидный Email. </span>
+                        <span *ngIf="formLogin.get('email').errors['required']">Введите email. </span>
+                </mat-error>   
+            </mat-form-field>
+            <mat-form-field>
+                <input  type="password" matInput placeholder="Пароль" formControlName="password">
+                <mat-error *ngIf="formLogin.get('password').invalid && formLogin.get('password').touched">
+                    <span *ngIf="formLogin.get('password').errors['pattern']">Не менее одиного латинского символа и цифры. </span>
+                    <span *ngIf="formLogin.get('password').errors['required']">Введите пароль. </span>
+                    <span *ngIf="formLogin.get('password').errors['minlength']">Пароль не менее 6 символов. </span>
+                </mat-error>   
+            </mat-form-field>
+        </div>
+        <div class="gap">
+            <span>Нет аккаунта? </span>
+            <a (click)="openSignUp()">Зарегестрируйтесь</a>
+        </div>  
+        <div mat-dialog-actions>
+            <button type="submit" [disabled]="formLogin.invalid" mat-raised-button>Войти</button>
+            <button mat-raised-button [mat-dialog-close]>Отмена</button>
+        </div>
+    </form>   
+</div>
+
+<div *ngIf="signUpnView">  
+    <form [formGroup]="formSignUp" (ngSubmit)="signUp()">
+        <h2 mat-dialog-title>Регистрация</h2>
+        <div mat-dialog-content class="inputs">    
+            <mat-form-field >
+                <input matInput placeholder="Email:" formControlName="email">
+                <mat-error *ngIf="formSignUp.get('email').invalid && formSignUp.get('email').touched">
+                    <span *ngIf="formSignUp.get('email').errors['pattern']">Не валидный Email. </span>
+                    <span *ngIf="formSignUp.get('email').errors['required']">Введите email. </span>
+                </mat-error>   
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Логин:" formControlName="username">
+                <mat-error *ngIf="formSignUp.get('username').invalid && formSignUp.get('username').touched">
+                        <span *ngIf="formSignUp.get('username').errors['pattern']">Только латинские символы, цифры и символ "_". </span>
+                        <span *ngIf="formSignUp.get('username').errors['required']">Введите логин. </span>
+                        <span *ngIf="formSignUp.get('username').errors['minlength']">Логин не менех 4 символов. </span>
+                </mat-error>   
+            </mat-form-field>
+            <mat-form-field>
+                <input  type="password" matInput placeholder="Пароль" formControlName="password">
+                <mat-error *ngIf="formSignUp.get('password').invalid && formSignUp.get('password').touched">
+                        <span *ngIf="formSignUp.get('password').errors['pattern']">Не менее одиного латинского символа и цифры. </span>
+                        <span *ngIf="formSignUp.get('password').errors['required']">Введите пароль. </span>
+                        <span *ngIf="formSignUp.get('password').errors['minlength']">Пароль не менее 6 символов. </span>
+                </mat-error>  
+            </mat-form-field>
+            <mat-form-field >
+                <input  type="password" matInput placeholder="Подтверждение пароля" formControlName="checkPass">
+                <mat-error *ngIf="formSignUp.controls.checkPass.invalid">Подтверждение пароля не совпадает.</mat-error>
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+            <button type="submit" [disabled]="formSignUp.invalid"  mat-raised-button>Регистрация</button>
+            <button mat-raised-button (click)="backToLogin()">Назад</button>
+        </div>
+    </form>   
+</div> 

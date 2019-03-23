@@ -1,0 +1,110 @@
+<ng-container *ngIf="car">
+    <form class="carForm" [formGroup]="carForm" (ngSubmit)="onSubmit()">
+        <div class="wrapper">
+            <div class="basicProps">
+                <div class="formGroup name">
+                    <label>Марка:</label>
+                    <mat-form-field>
+                        <input matInput placeholder="Введите марку автомобиля" formControlName="make" />
+                        <mat-error *ngIf="carForm.controls.make.invalid">Поле не заполнено</mat-error>
+                    </mat-form-field>
+                    <label>Модель:</label>
+                    <mat-form-field>
+                        <input matInput placeholder="Введите модель автомобиля" formControlName="model" />
+                        <mat-error *ngIf="carForm.controls.model.invalid">Поле не заполнено</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="formGroup images">
+                <label>Изображения:</label>
+                <input type="file" id="file" formControlName="imageLinks" (change)="onSelectImage($event.target.files)"
+                    class="inputfile" multiple />
+                <label mat-button for="file">{{ uploadButtonText }}</label>
+                <div class="selectedImages scroll" *ngIf="action === 'edit'">
+                    <div class="imageContainer" *ngFor="let img of car.imageLinks">
+                        <div class="deleteImage">
+                            <i class="material-icons" (click)="removeImage(img)">close</i>
+                        </div>
+                        <img [src]="img" />
+                    </div>
+                </div>
+            </div>
+            <div class="formGroup equipments" formArrayName="equipments">
+                <label>Комплектации:</label>
+                <div class="equipmentsWrapper"
+                    *ngFor="let equipment of carForm.get('equipments').controls; let i = index">
+                    <ng-container [formGroupName]="i">
+                        <mat-form-field>
+                            <input matInput placeholder="name" formControlName="name" />
+                            <mat-error *ngIf="equipment.controls.name.invalid">Поле не заполнено</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="price" formControlName="price" />
+                            <mat-error *ngIf="equipment.controls.price.invalid">Значение поля должно быть числом
+                            </mat-error>
+                        </mat-form-field>
+                        <ng-container formGroupName="properties">
+                            <mat-form-field>
+                                <input matInput placeholder="acceleration" formControlName="acceleration" />
+                                <mat-error *ngIf="equipment.controls.properties.controls.acceleration.invalid">
+                                    Значение поля должно быть числом
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="battery" formControlName="battery" />
+                                <mat-error *ngIf="equipment.controls.properties.controls.battery.invalid">
+                                    Значение поля должно быть числом
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="gear" formControlName="gear" />
+                                <mat-error *ngIf="equipment.controls.properties.controls.gear.invalid">
+                                    Поле не заполнено
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="power" formControlName="power" />
+                                <mat-error *ngIf="equipment.controls.properties.controls.power.invalid">
+                                    Значение поля должно быть числом
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="range" formControlName="range" />
+                                <mat-error *ngIf="equipment.controls.properties.controls.range.invalid">
+                                    Значение поля должно быть числом
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="seating" formControlName="seating" />
+                                <mat-error *ngIf="equipment.controls.properties.controls.seating.invalid">
+                                    Значение поля должно быть числом
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="speed" formControlName="speed" />
+                                <mat-error *ngIf="equipment.controls.properties.controls.speed.invalid">
+                                    Значение поля должно быть числом
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="weight" formControlName="weight" />
+                                <mat-error *ngIf="equipment.controls.properties.controls.weight.invalid">
+                                    Значение поля должно быть числом
+                                </mat-error>
+                            </mat-form-field>
+                        </ng-container>
+                        <div class="removeEquipment" (click)="removeEquipment(i)">
+                            <i class="material-icons">delete</i>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="addEquipment" (click)="addEquipment()"><i class="material-icons">add</i></div>
+            </div>
+        </div>
+        <div fxLayout fxLayoutGap="1%">
+            <button mat-raised-button color="primary" type="submit" [disabled]="carForm.invalid">Отправить</button>
+            <button mat-raised-button (click)="backToCars()">Отмена</button>
+        </div>
+    </form>
+</ng-container>
+<mat-spinner *ngIf="!car"></mat-spinner>

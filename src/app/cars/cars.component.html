@@ -1,0 +1,18 @@
+<div *ngIf="carsToDisplay" class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+    <app-car-list fxFlex="calc(100% - 280px)" [cars]="carsToDisplay">
+        <app-pagination
+            [currentPage]="currentPage"
+            [totalCount]="totalCount"
+            [itemsPerPage]="itemsPerPage"
+            (loadPage)="loadPage($event)"
+            (loadMore)="loadMore()">
+        </app-pagination>
+    </app-car-list>
+    <app-car-filters
+        fxFlex="280px"
+        [cars]="databaseCars"
+        (filterCarList)="filterCarList($event)"
+        (cancelFilters)="cancelFilters($event)">
+    </app-car-filters>
+</div>
+<mat-spinner *ngIf="!carsToDisplay"></mat-spinner>

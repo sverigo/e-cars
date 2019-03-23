@@ -1,0 +1,3 @@
+<button mat-button *ngIf="!isLoginned" (click)="openLogin()">Логин/Регистрация</button>
+<a routerLinkActive="active" *ngIf="isLoginned" routerLink="/profile">Личный кабинет</a>
+<button mat-button *ngIf="isLoginned" (click)="logout()">Выход</button>

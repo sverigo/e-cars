@@ -1,0 +1,14 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center start">
+    <nav fxFlex="280px">
+        <a routerLink="settings" routerLinkActive="active" >Профиль</a>
+        <a routerLink="reviews" routerLinkActive="active" >Мои отзывы</a>
+        <ng-container *ngIf="currentUser && currentUser.role === 2">
+            <a routerLink="news" routerLinkActive="active" >Новости</a>
+            <a routerLink="cars" routerLinkActive="active" >Авто</a>
+            <a routerLink="admin" routerLinkActive="active" >Админка</a>
+        </ng-container>
+    </nav>
+    <div fxFlex="auto">
+        <router-outlet></router-outlet>
+    </div>
+</div>

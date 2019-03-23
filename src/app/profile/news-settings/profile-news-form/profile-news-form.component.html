@@ -1,0 +1,69 @@
+<h3>{{title}}</h3>
+<form fxLayout="column" fxLayoutGap="1%" [formGroup]="newsForm"
+    (ngSubmit)="onSubmit()">
+    <p>Фото:</p>
+    <div fxLayout="column">
+        <img [src]="photoUrl || news.photo || '/assets/no-photo.jpg'"
+            alt="News photo">
+        <input type="file" formControlName="photoUrl" accept="image/*"
+            (change)="readUrl($event)">
+    </div>
+    <mat-form-field>
+        <mat-label>Заголовок:</mat-label>
+        <input matInput placeholder="Введите заголовок"
+            formControlName="title"/>
+        <mat-error *ngIf="newsForm.get('title').invalid && newsForm.get('title').touched">
+            <span *ngIf="newsForm.get('title').errors['pattern']">
+                {{patternErrorMessage}}
+            </span>
+            <span *ngIf="newsForm.get('title').errors['required']">
+                {{emptyErrorMessage('заголовок')}}
+            </span>
+            <span *ngIf="newsForm.get('title').errors['maxlength']">
+                {{maxlengthErrorMessage(50)}}
+            </span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Описание:</mat-label>
+        <textarea rows="5" matInput placeholder="Введите краткое описание"
+            formControlName="description">
+        </textarea>
+        <mat-error *ngIf="newsForm.get('description').invalid && newsForm.get('description').touched">
+            <span *ngIf="newsForm.get('description').errors['pattern']">
+                {{patternErrorMessage}}
+            </span>
+            <span *ngIf="newsForm.get('description').errors['required']">
+                {{emptyErrorMessage('краткое описание')}}
+            </span>
+            <span *ngIf="newsForm.get('description').errors['maxlength']">
+                {{maxlengthErrorMessage(140)}}
+            </span>
+        </mat-error>
+    </mat-form-field>
+    <ng-container formGroupName="details">
+        <mat-form-field>
+            <mat-label>Текст:</mat-label>
+            <textarea rows="6" matInput placeholder="Введите текст новости"
+                formControlName="text">
+            </textarea>
+            <mat-error *ngIf="newsForm.get('details.text').invalid && newsForm.get('details.text').touched">
+                <span *ngIf="newsForm.get('details.text').errors['pattern']">
+                    {{patternErrorMessage}}
+                </span>
+                <span *ngIf="newsForm.get('details.text').errors['required']">
+                    {{emptyErrorMessage('текст')}}
+                </span>
+                <span *ngIf="newsForm.get('details.text').errors['maxlength']">
+                    {{maxlengthErrorMessage(5000)}}
+                </span>
+            </mat-error>
+        </mat-form-field>
+    </ng-container>
+    <div fxLayout fxLayoutGap="1%">
+        <button mat-raised-button color="primary" type="submit">
+            {{okButtonCaption}}
+        </button>
+        <button mat-raised-button (click)="backToNews()">Отмена </button>
+    </div>
+</form>

@@ -1,0 +1,8 @@
+<app-add-form
+    (addToCompare)="addToCompare($event)">
+</app-add-form>
+
+<app-comparison-table
+    [cars]="selectedCars"
+    (removeFromCompare)="removeFromCompare($event)">
+</app-comparison-table>

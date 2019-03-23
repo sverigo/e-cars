@@ -1,0 +1,77 @@
+<div class="filtersWrap">
+
+    <p>Фильтры</p>
+    <hr>
+
+    <p>Марка</p>
+    <mat-select placeholder="Выберите марку авто" [(ngModel)]="makeSelected" (selectionChange)="onMekeSelect()">
+        <mat-option *ngFor="let car of uniqCarsMake" [value]="car.id">
+            {{ car.make }}
+        </mat-option>
+    </mat-select>
+
+    <p>Модель</p>
+    <mat-select placeholder="Выберите модель авто" [disabled]="!carModels" [(ngModel)]="modelSelected">
+        <mat-option *ngFor="let car of carModels" [value]="car.model">
+            {{ car.model }}
+        </mat-option>
+    </mat-select>
+
+    <p>Цена (тыс. $)</p>
+    <p-slider [(ngModel)]="price.values" [range]="true" [min]="price.min" [max]="price.max"></p-slider>
+    <div class="rangeInputs" fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="30%">
+            <input matInput readonly="true" placeholder="от" [(ngModel)]="price.values[0]">
+        </mat-form-field>
+        <mat-form-field fxFlex="30%">
+            <input matInput readonly="true" placeholder="до" [(ngModel)]="price.values[1]">
+        </mat-form-field>
+    </div>
+
+    <p>Объем батареи (кВт*ч)</p>
+    <p-slider [(ngModel)]="battery.values" [range]="true" [min]="battery.min" [max]="battery.max"></p-slider>
+    <div class="rangeInputs" fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="30%">
+            <input matInput readonly="true" placeholder="от" [(ngModel)]="battery.values[0]">
+        </mat-form-field>
+        <mat-form-field fxFlex="30%">
+            <input matInput readonly="true" placeholder="до" [(ngModel)]="battery.values[1]">
+        </mat-form-field>
+    </div>
+
+    <p>Мощность (л.с.)</p>
+    <p-slider [(ngModel)]="power.values" [range]="true" [min]="power.min" [max]="power.max"></p-slider>
+    <div class="rangeInputs" fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="30%">
+            <input matInput readonly="true" placeholder="от" [(ngModel)]="power.values[0]">
+        </mat-form-field>
+        <mat-form-field fxFlex="30%">
+            <input matInput readonly="true" placeholder="до" [(ngModel)]="power.values[1]">
+        </mat-form-field>
+    </div>
+
+    <p>Запас хода (км)</p>
+    <p-slider [(ngModel)]="range.values" [range]="true" [min]="range.min" [max]="range.max"></p-slider>
+    <div class="rangeInputs" fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="30%">
+            <input matInput readonly="true" placeholder="от" [(ngModel)]="range.values[0]">
+        </mat-form-field>
+        <mat-form-field fxFlex="30%">
+            <input matInput readonly="true" placeholder="до" [(ngModel)]="range.values[1]">
+        </mat-form-field>
+    </div>
+
+    <div fxLayoutAlign="center">
+        <button mat-raised-button color="accent" (click)="filterCars()">
+                <i class="material-icons">search</i>
+                Отфильтровать
+        </button>
+    </div>
+
+    <div fxLayoutAlign="center" *ngIf="filterValues">
+        <button mat-button (click)="clearFilters()">
+                <i class="material-icons">keyboard_return</i>
+                Отмена
+        </button>
+    </div>
+</div>

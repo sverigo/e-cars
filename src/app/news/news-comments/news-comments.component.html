@@ -1,0 +1,6 @@
+<mat-list fxLayout="column" fxLayoutGap="20px">
+    <app-comment *ngFor="let comment of pagedComments" [comment]="comment">
+    </app-comment>
+</mat-list>
+<mat-paginator [length]="length" [pageSizeOptions]="pageSize" showFirstLastButtons (page)="onPageChanged($event)">
+</mat-paginator>

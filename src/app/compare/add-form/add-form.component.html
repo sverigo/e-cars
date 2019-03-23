@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="onCarSelected()">
+    <mat-select formControlName="makes" placeholder="Выберите марку авто" (selectionChange)="onMakeSelected($event.value)">
+        <mat-option *ngFor="let make of makes" [value]="make">{{ make }}</mat-option>
+    </mat-select>
+    <mat-select formControlName="models" placeholder="Выберите модель авто">
+        <mat-option *ngFor="let car of filteredCars" [value]="car.model">
+            {{ car.model }}
+        </mat-option>
+    </mat-select>
+    <button mat-raised-button type="submit" [disabled]="form.invalid"><i class="material-icons">add</i></button>
+</form>
