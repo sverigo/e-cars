@@ -11,7 +11,6 @@ import { MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule,
 
 import { PaginationComponent } from './pagination/pagination.component';
 import { CarEquipmentPropertiesComponent } from './car-equipment-properties/car-equipment-properties.component';
-import { EquipmentTableModule } from './equipment-table/equipment-table.module';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { CommentComponent } from './comment/comment.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
@@ -19,7 +18,6 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 @NgModule({
     imports: [
         CommonModule,
-        EquipmentTableModule,
         FlexLayoutModule,
         MatButtonModule,
         MatCardModule,
@@ -45,7 +43,6 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
         CommentComponent,
         CommonModule,
         ConfirmDialogComponent,
-        EquipmentTableModule,
         FlexLayoutModule,
         FormsModule,
         MatButtonModule,
