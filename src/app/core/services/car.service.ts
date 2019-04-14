@@ -44,6 +44,7 @@ export class CarService {
         return this.currentCarsList;
     }
 
+    // FIX ISSUE WITH CARS WHEN DB HASN'T CARS
     addCar(car: Car, files: Upload[] = null) {
         console.log('test');
         this.firestore.collection('cars', ref => ref.orderBy('id', 'desc').limit(1)).get().subscribe((element) => {
