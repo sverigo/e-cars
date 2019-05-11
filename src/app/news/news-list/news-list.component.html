@@ -1,11 +1,12 @@
-<div class="scroll" *ngIf="news">
-    <div fxLayout="column" fxLayoutGap="3vh">
-        <app-card-news *ngFor="let newsItem of news | slice:startIndex:endIndex"
-            [data]="newsItem" (click)="select(newsItem)">
-        </app-card-news>
+<ng-container *ngIf="news">
+    <div class="scroll">
+        <div fxLayout="column" fxLayoutGap="3vh">
+            <app-card-news *ngFor="let newsItem of news | slice:startIndex:endIndex" [data]="newsItem"
+                (click)="select(newsItem)">
+            </app-card-news>
+        </div>
     </div>
-</div>
+    <mat-paginator showFirstLastButtons [length]="length" [pageSize]="pageSize" (page)="onPageChanged($event)">
+    </mat-paginator>
+</ng-container>
 <mat-spinner *ngIf="!news"></mat-spinner>
-<mat-paginator showFirstLastButtons [length]="length" [pageSize]="pageSize"
-    (page)="onPageChanged($event)">
-</mat-paginator>
