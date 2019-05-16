@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from '../app-routing.module';
+import { ProfileRoutingModule } from './profile-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { ProfileComponent } from './profile.component';
@@ -28,7 +28,7 @@ import { UsersSettingsComponent } from './users-settings/users-settings/users-se
         UsersSettingsComponent,
     ],
     imports: [
-        AppRoutingModule,
+        ProfileRoutingModule,
         SharedModule
     ],
     entryComponents: [

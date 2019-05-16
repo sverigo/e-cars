@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -15,8 +16,6 @@ import { CarsModule } from './cars/cars.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { NewsModule } from './news/news.module';
 import { CompareModule } from './compare/compare.module';
-import { ProfileModule } from './profile/profile.module';
-import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { MapComponent } from './map/map.component';
 
 @NgModule({
@@ -36,8 +35,7 @@ import { MapComponent } from './map/map.component';
         NewsModule,
         CompareModule,
         AuthenticationModule,
-        ProfileModule,
-        PageNotFoundModule
+        BrowserAnimationsModule
     ],
     providers: [
     ],
