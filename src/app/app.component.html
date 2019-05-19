@@ -10,7 +10,8 @@
         <app-authentication></app-authentication>
     </div>
 </header>
-<router-outlet></router-outlet>
+<mat-spinner *ngIf="loading"></mat-spinner>
+<router-outlet *ngIf="!loading"></router-outlet>
 <footer>
     <p>All rights reserved (c) {{ currentYear }}</p>
 </footer>

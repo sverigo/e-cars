@@ -17,6 +17,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { NewsModule } from './news/news.module';
 import { CompareModule } from './compare/compare.module';
 import { MapComponent } from './map/map.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import { MapComponent } from './map/map.component';
         NewsModule,
         CompareModule,
         AuthenticationModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        SharedModule
     ],
     providers: [
     ],
