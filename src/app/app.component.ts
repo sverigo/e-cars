@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -8,16 +7,4 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
     currentYear: number = new Date().getFullYear();
-
-    constructor(private router: Router) { }
-
-    /*ngOnInit() {
-        this.router.events.subscribe((event) => {
-            if (event instanceof RouteConfigLoadStart) {
-                this.loading = true;
-            } else if (event instanceof NavigationEnd) {
-                this.loading = false;
-            }
-        });
-    }*/
 }

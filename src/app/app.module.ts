@@ -14,15 +14,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarsModule } from './cars/cars.module';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { NewsModule } from './news/news.module';
-import { CompareModule } from './compare/compare.module';
-import { MapComponent } from './map/map.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        MapComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
@@ -33,8 +29,6 @@ import { SharedModule } from './shared/shared.module';
         AngularFireStorageModule,
         AppRoutingModule,
         CarsModule,
-        NewsModule,
-        CompareModule,
         AuthenticationModule,
         BrowserAnimationsModule,
         SharedModule

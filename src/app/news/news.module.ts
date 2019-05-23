@@ -9,13 +9,19 @@ import { NewsDetailsComponent } from './news-details/news-details.component';
 import { NewsCommentsComponent } from './news-comments/news-comments.component';
 import { SharedModule } from '../shared/shared.module';
 import { CardNewsComponent } from './card-news/card-news.component';
-
-
+import { NewsRoutingModule } from './news-routing.module';
 
 @NgModule({
-    declarations: [NewsComponent, NewsListComponent, NewsDetailsComponent, NewsCommentsComponent, CardNewsComponent],
+    declarations: [
+        NewsComponent,
+        NewsListComponent,
+        NewsDetailsComponent,
+        NewsCommentsComponent,
+        CardNewsComponent
+    ],
     imports: [
-        SharedModule,
+        SharedModule.forRoot(),
+        NewsRoutingModule,
         CommonModule,
         FlexLayoutModule,
         MatListModule,

@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from '../app-routing.module';
+
 import { SharedModule } from '../shared/shared.module';
+import { CompareRoutingModule } from './compare-routing.module';
 
 import { CompareComponent } from './compare.component';
 import { AddFormComponent } from './add-form/add-form.component';
 import { ComparisonTableComponent } from './comparison-table/comparison-table.component';
-
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -15,9 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         ComparisonTableComponent,
     ],
     imports: [
-        AppRoutingModule,
-        SharedModule,
-        ReactiveFormsModule
+        CompareRoutingModule,
+        SharedModule.forRoot()
     ]
 })
 export class CompareModule { }

@@ -11,7 +11,7 @@ import { PageNotFoundRoutingModule } from './page-not-found-routing.module';
     ],
     imports: [
         CommonModule,
-        SharedModule,
+        SharedModule.forRoot(),
         PageNotFoundRoutingModule
     ]
 })
