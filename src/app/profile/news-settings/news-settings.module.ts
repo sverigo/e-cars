@@ -4,14 +4,14 @@ import { NewsSettingsRoutingModule } from './news-settings-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { NewsSettingsComponent } from './news-settings.component';
-import { ProfileNewsTableComponent } from './profile-news-table/profile-news-table.component';
 import { ProfileNewsFormComponent } from './profile-news-form/profile-news-form.component';
+import { ProfileNewsTableComponent } from './profile-news-table/profile-news-table.component';
 
 @NgModule({
     declarations: [
         NewsSettingsComponent,
-        ProfileNewsTableComponent,
-        ProfileNewsFormComponent
+        ProfileNewsFormComponent,
+        ProfileNewsTableComponent
     ],
     imports: [
         NewsSettingsRoutingModule,

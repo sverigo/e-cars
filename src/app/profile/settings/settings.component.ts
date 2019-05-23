@@ -6,9 +6,9 @@ import { User } from '../../core/models/user.model';
 
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+    selector: 'app-settings',
+    templateUrl: './settings.component.html',
+    styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
 
@@ -17,20 +17,20 @@ export class SettingsComponent implements OnInit {
     form: FormGroup;
     imageSrc: any;
     private file: File;
-    constructor( private authService: AuthService, private profileService: ProfileSettingsService ) { }
+    constructor(private authService: AuthService, private profileService: ProfileSettingsService) { }
 
     ngOnInit() {
-        this.authService.isAuth().subscribe( data => this.user = data );
+        this.authService.isAuth().subscribe(data => this.user = data);
         this.form = new FormGroup({
             imgPath: new FormControl(''),
             newEmail: new FormControl('', Validators.email),
-            newPass: new FormControl('', [ Validators.minLength(this.minPasswordLength).bind(this), this.checkRepeatedPass.bind(this) ]),
-            repeatPass: new FormControl('', this.checkRepeatedPass.bind(this) ),
+            newPass: new FormControl('', [Validators.minLength(this.minPasswordLength).bind(this), this.checkRepeatedPass.bind(this)]),
+            repeatPass: new FormControl('', this.checkRepeatedPass.bind(this)),
             notifications: new FormControl(true, Validators.requiredTrue),
             currentPass: new FormControl('',
-                                [ Validators.required, Validators.minLength(this.minPasswordLength).bind(this) ],
-                                this.checkCurrentPass.bind(this)
-                            )
+                [Validators.required, Validators.minLength(this.minPasswordLength).bind(this)],
+                this.checkCurrentPass.bind(this)
+            )
         });
     }
 
@@ -48,8 +48,8 @@ export class SettingsComponent implements OnInit {
     }
 
     checkRepeatedPass(control: FormControl) {
-        if ( this.form && this.form.get('newPass').value !== this.form.get('repeatPass').value
-                       && this.form.get('repeatPass').value !== '' ) {
+        if (this.form && this.form.get('newPass').value !== this.form.get('repeatPass').value
+            && this.form.get('repeatPass').value !== '') {
             return {
                 notEqual: true
             };
@@ -58,8 +58,8 @@ export class SettingsComponent implements OnInit {
     }
 
     checkCurrentPass(control: FormControl) {
-        return new Promise( ( resolve, reject ) => {
-            if ( this.user.password === control.value ) {
+        return new Promise((resolve, reject) => {
+            if (this.user.password === control.value) {
                 resolve(null);
             } else {
                 resolve({

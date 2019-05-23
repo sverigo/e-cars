@@ -1,22 +1,17 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './material.module';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from './material.module';
 
-import { PaginationComponent } from './pagination/pagination.component';
-import { CarEquipmentPropertiesComponent } from './car-equipment-properties/car-equipment-properties.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
+import { CarEquipmentPropertiesComponent } from './car-equipment-properties/car-equipment-properties.component';
 import { CommentComponent } from './comment/comment.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FlexLayoutModule,
-        MaterialModule
-    ],
     declarations: [
         AddCommentComponent,
         CarEquipmentPropertiesComponent,
@@ -24,18 +19,23 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
         ConfirmDialogComponent,
         PaginationComponent
     ],
+    imports: [
+        CommonModule,
+        FlexLayoutModule,
+        MaterialModule
+    ],
     exports: [
+        CommonModule,
+        FlexLayoutModule,
+        FormsModule,
+        MaterialModule,
+        ReactiveFormsModule,
         AddCommentComponent,
         CarEquipmentPropertiesComponent,
         CommentComponent,
-        CommonModule,
         ConfirmDialogComponent,
-        FlexLayoutModule,
-        FormsModule,
-        PaginationComponent,
-        ReactiveFormsModule,
-        MaterialModule
-    ],
+        PaginationComponent
+    ]
 })
 export class SharedModule {
     static forRoot(): ModuleWithProviders {

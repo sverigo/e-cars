@@ -1,16 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormControl, FormArray, FormBuilder,
-         Validators } from '@angular/forms';
+import {
+    FormGroup, FormControl, FormArray, FormBuilder,
+    Validators
+} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { News } from '../../../core/models/news.model';
 import { NewsDetails } from '../../../core/models/news-details.model';
 import { NewsService } from '../../../core/services/news.service';
 
 @Component({
-  selector: 'app-profile-news-form',
-  templateUrl: './profile-news-form.component.html',
-  styleUrls: ['./profile-news-form.component.scss']
+    selector: 'app-profile-news-form',
+    templateUrl: './profile-news-form.component.html',
+    styleUrls: ['./profile-news-form.component.scss']
 })
 export class ProfileNewsFormComponent implements OnInit, OnDestroy {
     newsForm: FormGroup;
@@ -35,7 +37,7 @@ export class ProfileNewsFormComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.action = this.activatedRoute.snapshot.url[0].path;
-        (this.action  === 'add') ? this.add() : this.edit();
+        (this.action === 'add') ? this.add() : this.edit();
     }
 
     ngOnDestroy() {
@@ -82,13 +84,13 @@ export class ProfileNewsFormComponent implements OnInit, OnDestroy {
     populateForm(news: News) {
         this.newsForm = this.formBuilder.group({
             title: new FormControl(
-                news.title, this.inputValidators({maxLength: 50})),
+                news.title, this.inputValidators({ maxLength: 50 })),
             description: new FormControl(
-                news.description, this.inputValidators({maxLength: 140})),
+                news.description, this.inputValidators({ maxLength: 140 })),
             photoUrl: new FormControl(''),
             details: this.formBuilder.group({
                 text: new FormControl(
-                    news.details.text, this.inputValidators({maxLength: 5000}))
+                    news.details.text, this.inputValidators({ maxLength: 5000 }))
             })
         });
     }

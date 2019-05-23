@@ -4,16 +4,15 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { config } from './_fire-config';
 
 import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { SharedModule } from './shared/shared.module';
+import { AppComponent } from './app.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         HttpClientModule,
         AngularFireModule.initializeApp(config),
         AngularFirestoreModule,
@@ -28,11 +28,10 @@ import { SharedModule } from './shared/shared.module';
         AngularFireStorageModule,
         AppRoutingModule,
         AuthenticationModule,
-        BrowserAnimationsModule,
         SharedModule
     ],
-    providers: [
-    ],
-    bootstrap: [AppComponent]
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule { }

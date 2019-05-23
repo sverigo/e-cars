@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     currentUser: User;
 
     private authChanges: Subscription;
+    private routerEventsChanges: Subscription;
 
     constructor(private auth: AuthService, private router: Router) { }
 
@@ -24,7 +25,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
             this.currentUser = user;
         });
 
-        this.router.events.subscribe((event) => {
+        this.routerEventsChanges = this.router.events.subscribe((event) => {
             if (event instanceof RouteConfigLoadStart) {
                 this.isLoading = true;
             } else if (event instanceof NavigationEnd || event instanceof NavigationCancel) {
@@ -35,6 +36,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.authChanges.unsubscribe();
+        this.routerEventsChanges.unsubscribe();
     }
 
 }

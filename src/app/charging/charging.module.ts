@@ -10,8 +10,8 @@ import { ChargingComponent } from './charging.component';
         ChargingComponent
     ],
     imports: [
-        SharedModule.forRoot(),
-        ChargingRoutingModule
+        ChargingRoutingModule,
+        SharedModule.forRoot()
     ]
 })
 export class ChargingModule { }

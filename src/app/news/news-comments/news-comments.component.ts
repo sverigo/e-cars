@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 @Component({
     selector: 'app-news-comments',
     templateUrl: './news-comments.component.html',
-    styleUrls: ['./news-comments.component.css']
+    styleUrls: ['./news-comments.component.scss']
 })
 export class NewsCommentsComponent implements OnChanges, OnDestroy {
     @Input() idNews: string;

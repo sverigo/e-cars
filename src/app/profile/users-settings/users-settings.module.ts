@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../../shared/shared.module';
 
+import { SharedModule } from '../../shared/shared.module';
 import { UsersSettingsRoutingModule } from './users-settings-routing.module';
+
 import { UsersSettingsComponent } from '../users-settings/users-settings.component';
 
 @NgModule({
@@ -9,8 +10,8 @@ import { UsersSettingsComponent } from '../users-settings/users-settings.compone
         UsersSettingsComponent,
     ],
     imports: [
-        UsersSettingsRoutingModule,
-        SharedModule.forRoot()
+        SharedModule.forRoot(),
+        UsersSettingsRoutingModule
     ]
 })
 export class UsersSettingsModule { }
