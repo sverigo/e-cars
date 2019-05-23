@@ -12,7 +12,6 @@ import { config } from './_fire-config';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { CarsModule } from './cars/cars.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -28,7 +27,6 @@ import { SharedModule } from './shared/shared.module';
         AngularFireAuthModule,
         AngularFireStorageModule,
         AppRoutingModule,
-        CarsModule,
         AuthenticationModule,
         BrowserAnimationsModule,
         SharedModule

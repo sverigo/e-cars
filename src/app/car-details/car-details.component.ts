@@ -1,10 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { CarService } from '../../core/services/car.service';
-import { Car } from '../../core/models/car.model';
-import { EquipmentService } from '../../core/services/equipment.service';
-import { Equipment } from '../../core/models/equipment.model';
+import { CarService } from '../core/services/car.service';
+import { Car } from '../core/models/car.model';
+import { EquipmentService } from '../core/services/equipment.service';
+import { Equipment } from '../core/models/equipment.model';
 
 @Component({
     selector: 'app-car-details',

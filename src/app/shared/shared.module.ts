@@ -1,13 +1,9 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MaterialModule } from './material.module';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule,
-         MatFormFieldModule, MatIconModule, MatInputModule, MatPaginatorModule,
-         MatProgressSpinnerModule, MatSelectModule, MatSortModule,
-         MatTableModule, MatTooltipModule } from '@angular/material';
 
 import { PaginationComponent } from './pagination/pagination.component';
 import { CarEquipmentPropertiesComponent } from './car-equipment-properties/car-equipment-properties.component';
@@ -19,15 +15,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     imports: [
         CommonModule,
         FlexLayoutModule,
-        MatButtonModule,
-        MatCardModule,
-        MatDialogModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatTableModule
+        MaterialModule
     ],
     declarations: [
         AddCommentComponent,
@@ -44,21 +32,9 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
         ConfirmDialogComponent,
         FlexLayoutModule,
         FormsModule,
-        MatButtonModule,
-        MatCardModule,
-        MatCheckboxModule,
-        MatDialogModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatPaginatorModule,
-        MatProgressSpinnerModule,
-        MatSelectModule,
-        MatSortModule,
-        MatTableModule,
-        MatTooltipModule,
         PaginationComponent,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MaterialModule
     ],
 })
 export class SharedModule {

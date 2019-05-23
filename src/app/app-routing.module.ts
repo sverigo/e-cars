@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from 'src/app/core/services.guard';
 
-import { CarsComponent } from './cars/cars.component';
-import { CarDetailsComponent } from './cars/car-details/car-details.component';
+import { AuthGuard } from 'src/app/core/services.guard';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'cars/1', pathMatch: 'full' },
-    { path: 'cars', redirectTo: 'cars/1', pathMatch: 'full' },
-    { path: 'cars/:pageId', component: CarsComponent },
-    { path: 'car/:id', component: CarDetailsComponent },
+    { path: 'cars', loadChildren: './cars/cars.module#CarsModule' },
+    { path: 'car', loadChildren: './car-details/car-details.module#CarDetailsModule' },
     { path: 'news', loadChildren: './news/news.module#NewsModule' },
     { path: 'charging', loadChildren: './charging/charging.module#ChargingModule' },
     { path: 'compare', loadChildren: './compare/compare.module#CompareModule' },
