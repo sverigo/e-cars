@@ -38,7 +38,6 @@ export class ReviewsComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.commentsChanges = this.newsService.getCommentsByUser(this.user.id)
                 .subscribe((commentData: NewsComment[]) => {
                     this.dataSource.data = commentData;
-                    console.log(commentData);
                 });
             }
         });
@@ -69,5 +68,4 @@ export class ReviewsComponent implements OnInit, AfterViewInit, OnDestroy {
         this.commentsChanges.unsubscribe();
         this.checkAuth.unsubscribe();
     }
-
 }

@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-    loading = false;
+export class AppComponent {
     currentYear: number = new Date().getFullYear();
 
     constructor(private router: Router) { }
 
-    ngOnInit() {
+    /*ngOnInit() {
         this.router.events.subscribe((event) => {
             if (event instanceof RouteConfigLoadStart) {
                 this.loading = true;
-            } else if (event instanceof RouteConfigLoadEnd) {
+            } else if (event instanceof NavigationEnd) {
                 this.loading = false;
             }
         });
-    }
+    }*/
 }
