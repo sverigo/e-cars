@@ -8,7 +8,7 @@ import { CarsFormComponent } from './cars-form/cars-form.component';
 const routes: Routes = [
     { path: '', component: CarsSettingsComponent, children: [
         { path: '', component: CarsSettingsDefaultComponent },
-        { path: 'add', component: CarsFormComponent },
+        { path: 'create', component: CarsFormComponent },
         { path: 'edit/:id', component: CarsFormComponent }
     ] }
 ];
