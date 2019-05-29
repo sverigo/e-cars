@@ -1,34 +1,43 @@
-<div class="image">
-    <img [src]="prevImage" />
-</div>
-<div class="content">
-    <div class="header">
-        <div class="make">{{ name }}</div>
-        <div class="rating" matTooltip="{{ rating }}">
-            <div [style.width.%]="rating * 20"></div>
-        </div>
-        <div class="clearfix"></div>
+<mat-card class="car-card">
+    <div class="car-image">
+        <ng-template [ngIf]="prevImage != null">
+            <img class="image" [src]="prevImage">
+        </ng-template>
+        <ng-template [ngIf]="prevImage == null">
+            <img class="image" src="/assets/no-photo.jpg" />
+        </ng-template>
     </div>
-    <div class="properties">
-        <div class="price">
-            <span>Цена: </span>{{ priceRange.min }}
-            <ng-template [ngIf]="priceRange.min !== priceRange.max"> - {{ priceRange.max }}</ng-template> $
+    
+    <div class="car-info">
+        <div class="car-header">
+            <div class="car-title">{{ name }}</div>
+            <div class="car-rate" matTooltip="{{ rating }}">
+                <div [style.width.%]="rating * 20"></div>
+            </div>
+            <div class="clearfix"></div>
         </div>
-        <!--<div class="props offersCount"><span>Предложения:</span> {{ offersCount }}</div>-->
-        <div class="batteryCapacity">
-            <span>Батарея: </span>{{ batteryCapacity.min }}
-            <ng-template [ngIf]="batteryCapacity.min !== batteryCapacity.max"> - {{ batteryCapacity.max }}</ng-template>
-            А*ч
-        </div>
-        <div class="horsePower">
-            <span>Мощность: </span>{{ horsePower.min }}
-            <ng-template [ngIf]="horsePower.min !== horsePower.max"> - {{ horsePower.max }}</ng-template>
-            л.с.
-        </div>
-        <div class="range">
-            <span>Запас хода: </span>{{ range.min }}
-            <ng-template [ngIf]="range.min !== range.max"> - {{ range.max }}</ng-template>
-            км
+        <div class="car-properties">
+            <div class="price">
+                <span>Цена: </span>{{ priceRange.min }}
+                <ng-template [ngIf]="priceRange.min !== priceRange.max"> - {{ priceRange.max }}</ng-template> $
+            </div>
+            <!--<div class="props offersCount"><span>Предложения:</span> {{ offersCount }}</div>-->
+            <div>
+                <span>Батарея: </span>{{ batteryCapacity.min }}
+                <ng-template [ngIf]="batteryCapacity.min !== batteryCapacity.max"> - {{ batteryCapacity.max }}
+                </ng-template>
+                А*ч
+            </div>
+            <div>
+                <span>Мощность: </span>{{ horsePower.min }}
+                <ng-template [ngIf]="horsePower.min !== horsePower.max"> - {{ horsePower.max }}</ng-template>
+                л.с.
+            </div>
+            <div>
+                <span>Запас хода: </span>{{ range.min }}
+                <ng-template [ngIf]="range.min !== range.max"> - {{ range.max }}</ng-template>
+                км
+            </div>
         </div>
     </div>
-</div>
+</mat-card>

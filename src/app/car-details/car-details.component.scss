@@ -1,3 +1,5 @@
+@import "../../vars";
+
 :host {
     display: block;
     margin: 0 auto;
@@ -15,7 +17,7 @@ img {
 }
 
 .rating {
-    background-image: url("~/assets/empty_star.png");
+    background-image: $empty_star_image;
     background-repeat: repeat-x;
     background-size: 20px 20px;
     display: block;
@@ -25,7 +27,7 @@ img {
 }
   
 .rating span {
-    background-image: url("~/assets/filled_star.png");
+    background-image: $filled_star_image;
     background-repeat: repeat-x;
     background-size: 20px 20px;
     display: block;
