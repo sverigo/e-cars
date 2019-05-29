@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/app/core/services.guard';
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: 'cars/1', pathMatch: 'full' },
+    { path: '', redirectTo: 'cars', pathMatch: 'full' },
     { path: 'cars', loadChildren: './cars/cars.module#CarsModule' },
     { path: 'car', loadChildren: './car-details/car-details.module#CarDetailsModule' },
     { path: 'news', loadChildren: './news/news.module#NewsModule' },
