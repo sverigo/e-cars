@@ -2,8 +2,8 @@
     <button mat-button (click)="handleLoadMore()"
         [disabled]="currentLoadMorePage === pagesCount">Показать ещё</button>
     <button mat-button
-    *ngFor="let page of pagesList" 
-    (click)="handleLoadPage(page)"
-    [ngClass]="{'active': page === currentPage}"
-    [disabled] = "page === currentPage">{{page}}</button>
+        *ngFor="let page of pagesList" 
+        (click)="handleLoadPage(page)"
+        [ngClass]="{'active': page === currentPage}"
+        [disabled] = "page === currentPage">{{ page }}</button>
 </div>

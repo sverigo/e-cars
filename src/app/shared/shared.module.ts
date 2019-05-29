@@ -1,34 +1,17 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule,
-         MatFormFieldModule, MatIconModule, MatInputModule, MatPaginatorModule,
-         MatProgressSpinnerModule, MatSelectModule, MatSortModule,
-         MatTableModule, MatTooltipModule } from '@angular/material';
+import { MaterialModule } from './material.module';
 
-import { PaginationComponent } from './pagination/pagination.component';
-import { CarEquipmentPropertiesComponent } from './car-equipment-properties/car-equipment-properties.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
+import { CarEquipmentPropertiesComponent } from './car-equipment-properties/car-equipment-properties.component';
 import { CommentComponent } from './comment/comment.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FlexLayoutModule,
-        MatButtonModule,
-        MatCardModule,
-        MatDialogModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatTableModule
-    ],
     declarations: [
         AddCommentComponent,
         CarEquipmentPropertiesComponent,
@@ -36,30 +19,28 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
         ConfirmDialogComponent,
         PaginationComponent
     ],
-    exports: [
-        AddCommentComponent,
-        BrowserAnimationsModule,
-        CarEquipmentPropertiesComponent,
-        CommentComponent,
+    imports: [
         CommonModule,
-        ConfirmDialogComponent,
+        FlexLayoutModule,
+        MaterialModule
+    ],
+    exports: [
+        CommonModule,
         FlexLayoutModule,
         FormsModule,
-        MatButtonModule,
-        MatCardModule,
-        MatCheckboxModule,
-        MatDialogModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatPaginatorModule,
-        MatProgressSpinnerModule,
-        MatSelectModule,
-        MatSortModule,
-        MatTableModule,
-        MatTooltipModule,
-        PaginationComponent,
-        ReactiveFormsModule
-    ],
+        MaterialModule,
+        ReactiveFormsModule,
+        AddCommentComponent,
+        CarEquipmentPropertiesComponent,
+        CommentComponent,
+        ConfirmDialogComponent,
+        PaginationComponent
+    ]
 })
-export class SharedModule { }
+export class SharedModule {
+    static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: SharedModule
+        };
+    }
+}

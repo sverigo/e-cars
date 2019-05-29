@@ -1,31 +1,26 @@
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from '../app-routing.module';
+
+import { SliderModule } from 'primeng/slider';
+
+import { CarsRoutingModule } from './cars-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { CarFiltersModule } from './car-filters/car-filters.module';
 
-import { GalleriaModule } from 'primeng/galleria';
-
-import { CarsComponent } from './cars.component';
-import { CarListComponent } from './car-list/car-list.component';
-import { CarFiltersComponent } from './car-filters/car-filters.component';
-import { CarDetailsComponent } from './car-details/car-details.component';
 import { CarComponent } from './car/car.component';
-import { CarRateComponent } from './car-rate/car-rate.component';
+import { CarsComponent } from './cars.component';
+import { CarFiltersComponent } from './car-filters/car-filters.component';
+import { CarListComponent } from './car-list/car-list.component';
 
 @NgModule({
     declarations: [
-        CarListComponent,
+        CarComponent,
         CarsComponent,
         CarFiltersComponent,
-        CarDetailsComponent,
-        CarComponent,
-        CarRateComponent
+        CarListComponent
     ],
     imports: [
-        AppRoutingModule,
-        SharedModule,
-        CarFiltersModule,
-        GalleriaModule
-    ],
+        CarsRoutingModule,
+        SliderModule,
+        SharedModule.forRoot(),
+    ]
 })
 export class CarsModule { }

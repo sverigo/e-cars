@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from '../app-routing.module';
+
+import { CompareRoutingModule } from './compare-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
-import { CompareComponent } from './compare.component';
 import { AddFormComponent } from './add-form/add-form.component';
+import { CompareComponent } from './compare.component';
 import { ComparisonTableComponent } from './comparison-table/comparison-table.component';
-
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
-        CompareComponent,
         AddFormComponent,
-        ComparisonTableComponent,
+        CompareComponent,
+        ComparisonTableComponent
     ],
     imports: [
-        AppRoutingModule,
-        SharedModule,
-        ReactiveFormsModule
+        CompareRoutingModule,
+        SharedModule.forRoot()
     ]
 })
 export class CompareModule { }

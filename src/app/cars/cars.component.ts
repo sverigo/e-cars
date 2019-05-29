@@ -11,43 +11,42 @@ import { Subscription } from 'rxjs';
     styleUrls: ['./cars.component.scss']
 })
 export class CarsComponent implements OnInit, OnDestroy {
-    databaseCars: Car[];
+    fullCarList: Car[];
+    displayedCars: Car[];
     currentPage: number;
-    itemsPerPage = 6;
-    carsToDisplay: Car[];
     totalCount: number;
-
-    private carList: Car[];
+    itemsPerPage = 6;
+    
+    private filteredCars: Car[] = [];
     private pageCount: number;
     private pageStep: number;
     private carsChanges: Subscription;
     private routeChanges: Subscription;
 
-    constructor(private activatedRoute: ActivatedRoute, private router: Router, private carService: CarService) {
-        this.currentPage = activatedRoute.snapshot.params.id;
-        this.router = router;
-    }
+    constructor(private activatedRoute: ActivatedRoute, private router: Router, private carService: CarService) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.carsChanges = this.carService.getCars().subscribe((result: Car[]) => {
-            this.databaseCars = this.carList = result;
-            this.totalCount = this.carList.length;
-            this.onChangeData();
+            this.fullCarList = Object.assign([], result);
+            this.filteredCars = Object.assign([], result);
+            this.onChangeRoute();
         });
 
-        this.routeChanges = this.activatedRoute.params.subscribe(() => {
-            this.onChangeData();
+        this.routeChanges = this.activatedRoute.params.subscribe((params) => {
+            this.currentPage = +params.id;
+            this.pageStep = this.currentPage;
+            this.onChangeRoute();
         });
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.carsChanges.unsubscribe();
         this.routeChanges.unsubscribe();
     }
 
     loadMore(): void {
         this.pageStep++;
-        this.carsToDisplay = this.carsToDisplay.concat(this.carList.slice((this.pageStep - 1) * this.itemsPerPage,
+        this.displayedCars = this.displayedCars.concat(this.filteredCars.slice((this.pageStep - 1) * this.itemsPerPage,
             this.itemsPerPage * this.pageStep));
     }
 
@@ -55,34 +54,31 @@ export class CarsComponent implements OnInit, OnDestroy {
         this.router.navigate(['/cars', n]);
     }
 
-    onChangeData(): void {
-        if (this.carList !== undefined) {
-            this.currentPage = +this.router.url.replace(/\D+/g, '');
-            this.pageStep = this.currentPage;
-            this.totalCount = this.carList.length;
-            this.pageCount = Math.ceil(this.totalCount / this.itemsPerPage);
-
-            if (this.currentPage > 0 && this.currentPage <= this.pageCount && Number.isInteger(+this.currentPage)) {
-                this.carsToDisplay = this.carList.slice((this.currentPage - 1) * this.itemsPerPage, this.itemsPerPage * this.currentPage);
+    onChangeRoute(): void {
+        this.totalCount = this.filteredCars.length;
+        this.pageCount = Math.ceil(this.totalCount / this.itemsPerPage);
+        if (this.filteredCars.length) {
+            if (this.currentPage > 0 && this.currentPage <= this.pageCount && Number.isInteger(this.currentPage)) {
+                this.displayedCars = this.filteredCars.slice((this.currentPage - 1) * this.itemsPerPage, this.itemsPerPage * this.currentPage);
             } else {
-                this.router.navigate(['/not-found']);
+                this.router.navigateByUrl('/');
             }
         }
     }
 
     filterCarList(filterValues: FilterValues): void {
-        this.carList = this.carService.filterCars(filterValues, this.databaseCars);
+        this.filteredCars = this.carService.filterCars(filterValues, this.fullCarList);
 
-        if (this.carList.length) {
-            this.onChangeData();
+        if (this.filteredCars.length) {
+            this.onChangeRoute();
         } else {
-            this.carsToDisplay = [];
+            this.displayedCars = [];
             this.totalCount = 0;
         }
     }
 
     cancelFilters(): void {
-        this.carList = this.databaseCars;
-        this.onChangeData();
+        this.filteredCars = this.fullCarList;
+        this.onChangeRoute();
     }
 }

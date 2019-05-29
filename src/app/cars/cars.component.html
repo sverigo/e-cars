@@ -1,5 +1,5 @@
-<div *ngIf="carsToDisplay" class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
-    <app-car-list fxFlex="calc(100% - 280px)" [cars]="carsToDisplay">
+<div *ngIf="displayedCars" class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+    <app-car-list fxFlex="calc(100% - 280px)" [cars]="displayedCars">
         <app-pagination
             [currentPage]="currentPage"
             [totalCount]="totalCount"
@@ -10,9 +10,9 @@
     </app-car-list>
     <app-car-filters
         fxFlex="280px"
-        [cars]="databaseCars"
+        [cars]="fullCarList"
         (filterCarList)="filterCarList($event)"
         (cancelFilters)="cancelFilters($event)">
     </app-car-filters>
 </div>
-<mat-spinner *ngIf="!carsToDisplay"></mat-spinner>
+<mat-spinner *ngIf="!displayedCars"></mat-spinner>

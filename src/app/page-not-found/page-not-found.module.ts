@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from '../app-routing.module';
+
+import { PageNotFoundRoutingModule } from './page-not-found-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { PageNotFoundComponent } from './page-not-found.component';
@@ -9,8 +10,8 @@ import { PageNotFoundComponent } from './page-not-found.component';
         PageNotFoundComponent
     ],
     imports: [
-        AppRoutingModule,
-        SharedModule
+        PageNotFoundRoutingModule,
+        SharedModule.forRoot()
     ]
 })
 export class PageNotFoundModule { }

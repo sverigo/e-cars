@@ -9,6 +9,7 @@
         </ng-container>
     </nav>
     <div fxFlex="auto">
-        <router-outlet></router-outlet>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+        <router-outlet *ngIf="!isLoading"></router-outlet>
     </div>
 </div>

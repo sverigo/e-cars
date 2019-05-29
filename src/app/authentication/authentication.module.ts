@@ -1,32 +1,25 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { AuthenticationComponent} from './authentication.component';
-import { LoginComponent } from './login/login.component';
+
 import { AppRoutingModule } from '../app-routing.module';
-import {
-    MatButtonModule,
-    MatDialogModule,
-    MatInputModule,
-    MatSnackBarModule,
-} from '@angular/material';
+import { SharedModule } from '../shared/shared.module';
+
+import { AuthenticationComponent } from './authentication.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
     declarations: [
         AuthenticationComponent,
-        LoginComponent,
+        LoginComponent
     ],
     imports: [
-        FormsModule,
-        CommonModule,
-        ReactiveFormsModule,
         AppRoutingModule,
-        MatButtonModule,
-        MatDialogModule,
-        MatInputModule,
-        MatSnackBarModule,
+        SharedModule.forRoot()
     ],
-    entryComponents: [LoginComponent],
-    exports: [AuthenticationComponent]
+    entryComponents: [
+        LoginComponent
+    ],
+    exports: [
+        AuthenticationComponent
+    ]
   })
 export class AuthenticationModule { }
