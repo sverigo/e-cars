@@ -20,8 +20,8 @@ export class ProfileNewsTableComponent implements OnInit, OnDestroy, AfterViewIn
     public dataSource = new MatTableDataSource<News>();
     private newsChanges: Subscription;
 
-    @ViewChild(MatSort) sort: MatSort;
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort, { static: false }) sort: MatSort;
+    @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
     constructor(private newsService: NewsService,
                 private router: Router,

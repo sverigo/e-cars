@@ -12,8 +12,8 @@ import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-di
     styleUrls: ['./cars-settings-default.component.scss']
 })
 export class CarsSettingsDefaultComponent implements OnInit, OnDestroy, AfterViewInit {
-    @ViewChild(MatSort) sort: MatSort;
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort, { static: false }) sort: MatSort;
+    @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
     displayedColumns = ['id', 'make', 'model', 'details', 'update', 'delete'];
     dataSource = new MatTableDataSource<Car>();

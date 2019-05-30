@@ -16,7 +16,7 @@ import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-di
 })
 export class ReviewsComponent implements OnInit, AfterViewInit, OnDestroy {
 
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
     public displayedColumns = ['timeStamp', 'tittle', 'text', 'delete']; // , 'update', 'delete'
     public dataSource = new MatTableDataSource<NewsComment>();

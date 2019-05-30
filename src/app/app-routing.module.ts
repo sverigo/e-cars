@@ -5,13 +5,13 @@ import { AuthGuard } from 'src/app/core/services.guard';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'cars', pathMatch: 'full' },
-    { path: 'cars', loadChildren: './cars/cars.module#CarsModule' },
-    { path: 'car', loadChildren: './car-details/car-details.module#CarDetailsModule' },
-    { path: 'news', loadChildren: './news/news.module#NewsModule' },
-    { path: 'charging', loadChildren: './charging/charging.module#ChargingModule' },
-    { path: 'compare', loadChildren: './compare/compare.module#CompareModule' },
-    { path: 'profile', loadChildren: './profile/profile.module#ProfileModule', canActivate: [AuthGuard], canLoad: [AuthGuard] },
-    { path: '**', loadChildren: './page-not-found/page-not-found.module#PageNotFoundModule' }
+    { path: 'cars', loadChildren: () => import('./cars/cars.module').then(m => m.CarsModule) },
+    { path: 'car', loadChildren: () => import('./car-details/car-details.module').then(m => m.CarDetailsModule) },
+    { path: 'news', loadChildren: () => import('./news/news.module').then(m => m.NewsModule) },
+    { path: 'charging', loadChildren: () => import('./charging/charging.module').then(m => m.ChargingModule) },
+    { path: 'compare', loadChildren: () => import('./compare/compare.module').then(m => m.CompareModule) },
+    { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
+    { path: '**', loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule) }
 ];
 
 @NgModule({

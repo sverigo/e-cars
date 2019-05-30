@@ -10,10 +10,10 @@ const routes: Routes = [
     { path: '', component: ProfileComponent, children: [
         { path: '', redirectTo: 'settings' },
         { path: 'settings', component: SettingsComponent },
-        { path: 'reviews', loadChildren: './reviews/reviews.module#ReviewsModule' },
-        { path: 'cars', loadChildren: './cars-settings/cars-settings.module#CarsSettingsModule', canActivate: [ModeratorGuard], canLoad: [ModeratorGuard]},
-        { path: 'news', loadChildren: './news-settings/news-settings.module#NewsSettingsModule', canActivate: [ModeratorGuard], canLoad: [ModeratorGuard]},
-        { path: 'admin', loadChildren: './users-settings/users-settings.module#UsersSettingsModule', canActivate: [ModeratorGuard], canLoad: [ModeratorGuard] }
+        { path: 'reviews', loadChildren: () => import('./reviews/reviews.module').then(m => m.ReviewsModule) },
+        { path: 'cars', loadChildren: () => import('./cars-settings/cars-settings.module').then(m => m.CarsSettingsModule), canActivate: [ModeratorGuard], canLoad: [ModeratorGuard]},
+        { path: 'news', loadChildren: () => import('./news-settings/news-settings.module').then(m => m.NewsSettingsModule), canActivate: [ModeratorGuard], canLoad: [ModeratorGuard]},
+        { path: 'admin', loadChildren: () => import('./users-settings/users-settings.module').then(m => m.UsersSettingsModule), canActivate: [ModeratorGuard], canLoad: [ModeratorGuard] }
     ] }
 ];
 

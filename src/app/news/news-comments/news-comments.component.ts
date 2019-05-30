@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class NewsCommentsComponent implements OnChanges, OnDestroy {
     @Input() idNews: string;
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     private newsChanges: Subscription;
     private comments: NewsComment[];
     pagedComments: NewsComment[];

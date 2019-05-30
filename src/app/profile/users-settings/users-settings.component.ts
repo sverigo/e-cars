@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
     styleUrls: ['./users-settings.component.scss']
 })
 export class UsersSettingsComponent implements OnInit, OnDestroy, AfterViewInit {
-    @ViewChild(MatSort) sort: MatSort;
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort, { static: false }) sort: MatSort;
+    @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
     displayedColumns = ['email', 'username', 'moderator'];
     dataSource = new MatTableDataSource<User>();
