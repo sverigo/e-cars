@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges, SimpleChange, Output, EventEmitter } from '@angular/core';
 import { Car } from '../../core/models/car.model';
 import { Equipment } from '../../core/models/equipment.model';
-import { MatCheckbox } from '@angular/material';
+import { MatCheckbox } from '@angular/material/checkbox';
 
 @Component({
     selector: 'app-comparison-table',

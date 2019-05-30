@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { AngularFireAuth } from '@angular/fire/auth/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, Subscription } from 'rxjs';
 import { User } from '../models/user.model';

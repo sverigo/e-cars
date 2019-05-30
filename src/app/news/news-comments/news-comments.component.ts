@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild, OnChanges, OnDestroy } from '@angular/core';
 import { NewsComment } from '../../core/models/news-comment.model';
-import { MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
 import { NewsService } from '../../core/services/news.service';
 import { Subscription } from 'rxjs';
 

@@ -2,7 +2,9 @@ import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit } from '@angular
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
 import { User } from 'src/app/core/models/user.model';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 
 @Component({

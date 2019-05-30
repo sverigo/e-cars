@@ -2,8 +2,10 @@ import { Component, OnInit, OnDestroy, AfterViewInit,
     ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { MatTable, MatTableDataSource, MatSort,
-    MatPaginator, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
 import { News } from '../../../core/models/news.model';
 import { NewsService } from '../../../core/services/news.service';

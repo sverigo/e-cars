@@ -3,7 +3,10 @@ import { CarService } from 'src/app/core/services/car.service';
 import { Car } from 'src/app/core/models/car.model';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
 
 @Component({
