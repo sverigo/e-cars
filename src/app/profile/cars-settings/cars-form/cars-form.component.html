@@ -35,59 +35,59 @@
                     *ngFor="let equipment of carForm.get('equipments').controls; let i = index">
                     <ng-container [formGroupName]="i">
                         <mat-form-field>
-                            <input matInput placeholder="name" formControlName="name" />
+                            <input matInput placeholder="Название" formControlName="name" />
                             <mat-error *ngIf="equipment.controls.name.invalid">Поле не заполнено</mat-error>
                         </mat-form-field>
                         <mat-form-field>
-                            <input matInput placeholder="price" formControlName="price" />
+                            <input matInput placeholder="Цена ($)" formControlName="price" />
                             <mat-error *ngIf="equipment.controls.price.invalid">Значение поля должно быть числом
                             </mat-error>
                         </mat-form-field>
                         <ng-container formGroupName="properties">
                             <mat-form-field>
-                                <input matInput placeholder="acceleration" formControlName="acceleration" />
+                                <input matInput placeholder="Разгон 0-100 (сек)" formControlName="acceleration" />
                                 <mat-error *ngIf="equipment.controls.properties.controls.acceleration.invalid">
                                     Значение поля должно быть числом
                                 </mat-error>
                             </mat-form-field>
                             <mat-form-field>
-                                <input matInput placeholder="battery" formControlName="battery" />
+                                <input matInput placeholder="Батарея (Ач)" formControlName="battery" />
                                 <mat-error *ngIf="equipment.controls.properties.controls.battery.invalid">
                                     Значение поля должно быть числом
                                 </mat-error>
                             </mat-form-field>
                             <mat-form-field>
-                                <input matInput placeholder="gear" formControlName="gear" />
+                                <input matInput placeholder="Привод" formControlName="gear" />
                                 <mat-error *ngIf="equipment.controls.properties.controls.gear.invalid">
                                     Поле не заполнено
                                 </mat-error>
                             </mat-form-field>
                             <mat-form-field>
-                                <input matInput placeholder="power" formControlName="power" />
+                                <input matInput placeholder="Мощность (л.с.)" formControlName="power" />
                                 <mat-error *ngIf="equipment.controls.properties.controls.power.invalid">
                                     Значение поля должно быть числом
                                 </mat-error>
                             </mat-form-field>
                             <mat-form-field>
-                                <input matInput placeholder="range" formControlName="range" />
+                                <input matInput placeholder="Запас хода (км)" formControlName="range" />
                                 <mat-error *ngIf="equipment.controls.properties.controls.range.invalid">
                                     Значение поля должно быть числом
                                 </mat-error>
                             </mat-form-field>
                             <mat-form-field>
-                                <input matInput placeholder="seating" formControlName="seating" />
+                                <input matInput placeholder="Количество мест" formControlName="seating" />
                                 <mat-error *ngIf="equipment.controls.properties.controls.seating.invalid">
                                     Значение поля должно быть числом
                                 </mat-error>
                             </mat-form-field>
                             <mat-form-field>
-                                <input matInput placeholder="speed" formControlName="speed" />
+                                <input matInput placeholder="Максимальная скорость" formControlName="speed" />
                                 <mat-error *ngIf="equipment.controls.properties.controls.speed.invalid">
                                     Значение поля должно быть числом
                                 </mat-error>
                             </mat-form-field>
                             <mat-form-field>
-                                <input matInput placeholder="weight" formControlName="weight" />
+                                <input matInput placeholder="Вес" formControlName="weight" />
                                 <mat-error *ngIf="equipment.controls.properties.controls.weight.invalid">
                                     Значение поля должно быть числом
                                 </mat-error>

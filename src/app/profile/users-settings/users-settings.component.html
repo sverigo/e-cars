@@ -17,17 +17,17 @@
             <td mat-cell *matCellDef="let element">{{ element.email }}</td>
         </ng-container>
         <ng-container matColumnDef="username">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Username</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Никнейм</th>
             <td mat-cell *matCellDef="let element">{{ element.username }}</td>
         </ng-container>
         <ng-container matColumnDef="moderator">
-            <th mat-header-cell *matHeaderCellDef>Moderator</th>
+            <th mat-header-cell *matHeaderCellDef>Статус модератора</th>
             <td mat-cell *matCellDef="let element">
                 <button *ngIf="element.role === 1" mat-button (click)="setModeratorRights(element)" color="primary">
-                    Set moderator
+                    Назначить
                 </button>
                 <button *ngIf="element.role === 2" mat-button (click)="setModeratorRights(element)"color="warn">
-                    Remove moderator
+                    Удалить
                 </button>
             </td>
         </ng-container>
