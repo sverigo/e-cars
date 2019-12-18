@@ -1,25 +1,31 @@
 <mat-card *ngIf="car">
     <div class="info" fxLayout="row" fxLayoutAlign="space-between">
         <p-galleria [images]="carImages" panelWidth="390" panelHeight="290" [showCaption]="false" class="gallery"></p-galleria>
-        <div>
+        <div class="description">
             <mat-card-title>{{ carName }}
                 <span class="rating" matTooltip="{{car.rating}}">
                     <span [style.width.%]="car.rating * 20"></span>
                 </span>
             </mat-card-title>
             <mat-card-content class="props">
-                <div>
-                    <span>Цена:</span> {{ carPriceRange }}
-                </div>
-                <div>
-                    <span>Батарея: </span>{{ carBatteryRange }}
-                </div>
-                <div>
-                    <span>Мощность: </span>{{ carPowerRange }}
-                </div>
-                <div>
-                    <span>Запас хода: </span>{{ carRangeRange }}
-                </div>
+                <table>
+                    <tr>
+                        <td class="property">Цена</td>
+                        <td>{{ carPriceRange }}</td>
+                    </tr>
+                    <tr>
+                        <td class="property">Батарея</td>
+                        <td>{{ carBatteryRange }}</td>
+                    </tr>
+                    <tr>
+                        <td class="property">Мощность</td>
+                       <td>{{ carPowerRange }}</td>
+                    </tr>
+                    <tr>
+                        <td class="property">Запас хода</td>
+                        <td>{{ carRangeRange }}</td>
+                    </tr>
+                </table>
             </mat-card-content>
             <app-car-rate [carId]="car.id"></app-car-rate>
         </div>

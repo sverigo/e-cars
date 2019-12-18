@@ -16,6 +16,11 @@ img {
     max-width: 100%;
 }
 
+.description {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
 .rating {
     background-image: $empty_star_image;
     background-repeat: repeat-x;
@@ -35,8 +40,22 @@ img {
     width: 0;
 }
 
-.props span {
-    font-weight: bold;
+.props {
+    margin-top: 20px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 12pt;
+    table{
+        width: 100%;
+        td{
+            margin: 0;
+            border: 0;
+            padding: 10px 0;
+            border-bottom: 1px dotted #aaa;
+        }
+    }
+    .property{
+        font-weight: bold;
+    }
 }
 
 .equipments-wrapper {
