@@ -1,6 +1,6 @@
 <mat-card *ngIf="car">
     <div class="info" fxLayout="row" fxLayoutAlign="space-between">
-        <p-galleria [images]="carImages" panelWidth="390" panelHeight="290" [showCaption]="false"></p-galleria>
+        <p-galleria [images]="carImages" panelWidth="390" panelHeight="290" [showCaption]="false" class="gallery"></p-galleria>
         <div>
             <mat-card-title>{{ carName }}
                 <span class="rating" matTooltip="{{car.rating}}">

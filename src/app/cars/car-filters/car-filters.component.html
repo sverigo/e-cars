@@ -17,7 +17,7 @@
         </mat-option>
     </mat-select>
 
-    <p>Цена (тыс. $)</p>
+    <p>Цена ($)</p>
     <p-slider [(ngModel)]="price.values" [range]="true" [min]="price.min" [max]="price.max"></p-slider>
     <div class="rangeInputs" fxLayoutAlign="space-between">
         <mat-form-field fxFlex="30%">
@@ -28,7 +28,7 @@
         </mat-form-field>
     </div>
 
-    <p>Объем батареи (кВт*ч)</p>
+    <p>Объем батареи (Ач)</p>
     <p-slider [(ngModel)]="battery.values" [range]="true" [min]="battery.min" [max]="battery.max"></p-slider>
     <div class="rangeInputs" fxLayoutAlign="space-between">
         <mat-form-field fxFlex="30%">
