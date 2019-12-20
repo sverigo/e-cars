@@ -30,8 +30,33 @@ mat-spinner {
 
 img{
     border-radius: 5%;
+    height: 100%;
 }
 
 mat-card-content{
     font-size: 12pt;
+    margin-top: 20px;
+}
+
+mat-card-title, mat-card-subtitle{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+mat-card-title{
+    padding: 10px;
+    top: 100px;
+    font-weight: bold;
+    font-size: 16pt;
+    letter-spacing: 3px;
+}
+mat-card-subtitle{
+    padding: 5px;
+    top: 50px;
+    font-size: 12pt;
+}
+
+mat-card-header{
+    max-height: 50vh;
+    overflow: hidden;
 }

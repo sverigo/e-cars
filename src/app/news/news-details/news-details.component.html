@@ -3,13 +3,14 @@
         <div fxLayout="column" fxLayoutGap="10px">
             <div>
                 <mat-card-header>
+                    <img mat-card-image [src]="newsDetails.photo || '/assets/no-photo.jpg'"
+                        alt="Photo of a car" />
                     <mat-card-title>{{newsDetails.title}}</mat-card-title>
                     <mat-card-subtitle>
                         {{newsDetails.details.date.toDate() | date: "fullDate"}}
                     </mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image [src]="newsDetails.photo || '/assets/no-photo.jpg'"
-                    alt="Photo of a car" />
+                
                 <mat-card-content>
                     {{newsDetails.details.text}}
                 </mat-card-content>
