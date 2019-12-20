@@ -22,7 +22,7 @@ export class ProfileNewsFormComponent implements OnInit, OnDestroy {
     private currentNewsId: string;
     private file: File;
     photoUrl: any;
-    private pattern = /^[\wа-яА-ЯєЄґҐіІїЇ ;:`ʼ'"\/\!\?\.,\-()&]+$/;
+    private pattern = /^[\wa-zA-Zа-яА-ЯєЄґҐіІїЇ ;:`ʼ'"\n«»\/\!\?\.,\-+=()&]+$/;
     private patternErrorMessage =
         'Допускаются буквы, цифры и символы _;:/!?`ʼ\'\",.-()&';
     title: string;
