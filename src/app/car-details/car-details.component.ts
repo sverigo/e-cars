@@ -61,7 +61,7 @@ export class CarDetailsComponent implements OnDestroy {
 
         this.carBatteryRange = batteryMin === batteryMax ?
                 `${batteryMin} А*ч` : `${batteryMin} — ${batteryMax} А*ч`;
-        
+
         let powerMin = this.equipmentService.getMinEquipmentsValue(car.equipments, 'power');
         let powerMax = this.equipmentService.getMaxEquipmentsValue(car.equipments, 'power');
 
@@ -73,8 +73,6 @@ export class CarDetailsComponent implements OnDestroy {
 
         this.carRangeRange = rangeMin === rangeMax ?
                 `${rangeMin} км` : `${rangeMin} — ${rangeMax} км`;
-                
-                
     }
 
     ngOnDestroy() {
