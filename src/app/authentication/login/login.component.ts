@@ -95,7 +95,7 @@ export class LoginComponent implements OnInit {
                 this.snackBar.open( 'Result:', 'Register success', { duration: 2000 });
                     this.dialogRef.close();
             } else {
-                this.snackBar.open( 'Result:', 'Register faid', { duration: 3000 });
+                this.snackBar.open( 'Result:', 'Register failed', { duration: 3000 });
             }
         });
     }
